@@ -1,5 +1,5 @@
-import TableEditablePage from './MainTable';
+import MainTable from './MainTable';
 
 export {
-    TableEditablePage
+    MainTable
 }

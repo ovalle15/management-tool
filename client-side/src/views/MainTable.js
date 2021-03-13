@@ -13,11 +13,15 @@ import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import Dropdown from 'react-dropdown';
+// import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import Button from '@material-ui/core/Button';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { BiCloudDownload }  from 'react-icons/bi';
+import Chip from '@material-ui/core/Chip';
+
+import api from '../api';
+
 
 
 const theme = createMuiTheme({
@@ -47,15 +51,14 @@ const trial_status = [
     {
         label: 'Needs Updates',
         value: 'needsUpdates',
-    },
-    {
-        label: 'Uploaded',
-        value: 'uploaded'
     }
   ];
-function createData(protocol) {
+
+
+function createData(item, status) {
   return {
-    protocol,
+    status,
+    item,
     history: [
       { reviewed: '2020-01-05', reviewer: 'Harry', comments: 3 },
       { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
@@ -68,11 +71,22 @@ function createData(protocol) {
   };
 }
 
+
 const defaultOption = trial_status[0];
+
+
+
 
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
+
+
+  // const data = api.getAllItems();
+  // console.log("This is the data from the db ", data)
+
+
+  console.log("This is row ===>", row);
 
   return (
     <React.Fragment>
@@ -87,24 +101,23 @@ function Row(props) {
         <TableCell
           component="th"
           scope="row">
-          {row.protocol}
+          {row.item}
         </TableCell>
         <TableCell
           align="center">
           <Button
               variant="outlined"
-              color="primary"
-              href="#contained-buttons">
+              color="primary">
               review
           </Button>
         </TableCell>
         <TableCell
-            scope="row"
-            align="center">
-            <Dropdown
-                options={trial_status}
-                value={defaultOption}
-                placeholder="Select an option"/>
+          align="center">
+          <Chip
+          label={row.status}
+          color="primary"
+          variant="outlined"
+          />
         </TableCell>
         <TableCell>
           <BiCloudDownload size="30">
@@ -171,22 +184,24 @@ Row.propTypes = {
 };
 
 const rows = [
-  createData('01-001'),
-  createData('01-002'),
-  createData('01-003'),
-  createData('10-004'),
-  createData('10-004')
+  createData('01-001', 'NeedsReview'),
+  createData('01-002', 'Updated'),
+  createData('01-003', 'Upload'),
+  createData('10-004', 'In Progress'),
+  createData('10-005', 'Needs Updates')
 ];
 
+console.log(rows);
+
+export default function MainTable() {
 
 
-export default function CollapsibleTable() {
   return (
     <TableContainer>
       <Table aria-label="collapsible table">
         <TableBody>
           {rows.map((row) => (
-            <Row key={row.protocol} row={row} />
+            <Row key={row.item} row={row} />
           ))}
         </TableBody>
       </Table>
