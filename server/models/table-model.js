@@ -23,7 +23,7 @@ let TableSchema = new Schema(
 
 const Table = mongoose.model('table', TableSchema);
 console.log("THIS IS THE Table ---->", Table);
-module.exports = mongoose.model('table', TableSchema);
+module.exports = mongoose.model('items', TableSchema);
 
 
 

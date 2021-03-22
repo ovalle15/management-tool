@@ -82,8 +82,8 @@ function Row(props) {
   const [open, setOpen] = React.useState(false);
 
 
-  // const data = api.getAllItems();
-  // console.log("This is the data from the db ", data)
+  const data = api.getAllItems();
+  console.log("This is the data from the db ===>", data)
 
 
   console.log("This is row ===>", row);

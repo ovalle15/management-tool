@@ -38,10 +38,10 @@ getItems =  async(req, res) => {
               <?xml version="1.0"?>
               ${items.map((c) => `
             <items>
-                <itemId> ${c._id} </itemId>
-                <title>${c.title}</title>
-                <createdDate>${c.createdAt}</createdDate>
-                <updatedDate>${c.updatedAt}</updatedDate>
+                <itemId> </itemId>
+                <title></title>
+                <createdDate></createdDate>
+                <updatedDate></updatedDate>
             </items>
                 `)}
               `;

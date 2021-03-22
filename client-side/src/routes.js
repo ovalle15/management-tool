@@ -1,9 +1,7 @@
-const HOME = '/';
-const ITEMS = '/items';
+const HOME = '/items';
 
 
 export const routes = {
-    HOME,
-    ITEMS
+    HOME
 
 }
