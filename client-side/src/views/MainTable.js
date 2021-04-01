@@ -13,16 +13,17 @@ import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-// import Dropdown from 'react-dropdown';
+import Dropdown from 'react-dropdown';
+import Link from '@material-ui/core/Link'
 import 'react-dropdown/style.css';
 import Button from '@material-ui/core/Button';
 import { createMuiTheme } from '@material-ui/core/styles';
-import { BiCloudDownload }  from 'react-icons/bi';
+import { BiCloudDownload, BiWindowAlt }  from 'react-icons/bi';
 import Chip from '@material-ui/core/Chip';
 
 import api from '../api';
 
-
+const rows = []
 
 const theme = createMuiTheme({
   overrides: {
@@ -35,58 +36,72 @@ const theme = createMuiTheme({
     }
   }
 })
-const trial_status = [
-    {
-      label: 'In Progress',
-      value: 'inProgress',
-    },
-    {
-      label: 'Needs Review',
-      value: 'needsReview',
-    },
-    {
-      label: 'Upload',
-      value: 'readyUpload',
-    },
-    {
-        label: 'Needs Updates',
-        value: 'needsUpdates',
-    }
-  ];
+// const trial_status = [
+//     {
+//       label: 'In Progress',
+//       value: 'inProgress',
+//     },
+//     {
+//       label: 'Needs Review',
+//       value: 'needsReview',
+//     },
+//     {
+//       label: 'Upload',
+//       value: 'readyUpload',
+//     },
+//     {
+//         label: 'Needs Updates',
+//         value: 'needsUpdates',
+//     }
+//   ];
 
-
-function createData(item, status) {
-  return {
-    status,
-    item,
-    history: [
-      { reviewed: '2020-01-05', reviewer: 'Harry', comments: 3 },
-      { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
-      { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
-      { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
-      { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
-      { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
-      { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
-    ],
-  };
+// function createData(item, status) {
+//   return {
+//     status,
+//     item,
+//     history: [
+//       { reviewed: '2020-01-05', reviewer: 'Harry', comments: 3 },
+//       { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
+//       { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
+//       { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
+//       { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
+//       { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
+//       { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
+//     ],
+//   };
+// }
+function setLocalStorage(row) {
+    window.localStorage.setItem("items", JSON.stringify(row))
+}
+function fetchFromLocalStorage(){
+    var data = JSON.parse(window.localStorage.getItem("items"))
+    console.log("This is data", data)
+    dataRowCreation(data)
 }
 
+function dataRowCreation(data) {
 
-const defaultOption = trial_status[0];
-
-
-
+    for (var obj of data) {
+        var item = obj.item
+        var status = obj.status 
+        var hist = obj.history
+        rows.push({"item": item, "status": status, "history": hist})
+    }
+    console.log("this is rows", rows)
+    return rows
+}
 
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
 
 
-  const data = api.getAllItems();
-  console.log("This is the data from the db ===>", data)
+//   const data = api.getAllItems();
+//   console.log("This is the data from the db ===>", data)
 
 
-  console.log("This is row ===>", row);
+//   console.log("This is row ===>", row);
+fetchFromLocalStorage()
 
   return (
     <React.Fragment>
@@ -105,11 +120,13 @@ function Row(props) {
         </TableCell>
         <TableCell
           align="center">
-          <Button
-              variant="outlined"
-              color="primary">
-              review
-          </Button>
+          <Link href={`/item/${row.item}`}>
+            <Button
+                variant="outlined"
+                color="primary">
+                review
+            </Button>
+          </Link>
         </TableCell>
         <TableCell
           align="center">
@@ -183,18 +200,18 @@ Row.propTypes = {
   }).isRequired,
 };
 
-const rows = [
-  createData('01-001', 'NeedsReview'),
-  createData('01-002', 'Updated'),
-  createData('01-003', 'Upload'),
-  createData('10-004', 'In Progress'),
-  createData('10-005', 'Needs Updates')
-];
+// const rows = [
+//   createData('01-001', 'NeedsReview'),
+//   createData('01-002', 'Updated'),
+//   createData('01-003', 'Upload'),
+//   createData('10-004', 'In Progress'),
+//   createData('10-005', 'Needs Updates')
+// ];
 
-console.log(rows);
+// setLocalStorage(rows)
+fetchFromLocalStorage()
 
 export default function MainTable() {
-
 
   return (
     <TableContainer>

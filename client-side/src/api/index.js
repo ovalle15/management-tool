@@ -20,7 +20,6 @@ export const updateItemById = (id, payload) => api.put(`/item/${id}`, payload);
 
 export const deleteItemById = id => api.delete(`/item/${id}`);
 
-
 const apis = {
     getAllItems,
     getItemsById,

@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { MainTable } from './views'
+import { MainTable, ReviewPage } from './views'
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { routes } from './routes';
@@ -21,6 +21,7 @@ class App extends Component {
     const publicViews = (
       <Switch>
         <Route exact path={routes.HOME} component = {MainTable}></Route>
+        <Route exact path={routes.REVIEW} component= {ReviewPage}></Route>
       </Switch>
 
 
