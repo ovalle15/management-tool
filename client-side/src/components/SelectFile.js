@@ -25,3 +25,4 @@ class SelectFile extends React.Component {
     }
 
 }
+export default SelectFile;

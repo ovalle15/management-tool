@@ -23,7 +23,7 @@ import Chip from '@material-ui/core/Chip';
 
 import api from '../api';
 
-const rows = []
+// const rows = []
 
 const theme = createMuiTheme({
   overrides: {
@@ -36,60 +36,61 @@ const theme = createMuiTheme({
     }
   }
 })
-// const trial_status = [
-//     {
-//       label: 'In Progress',
-//       value: 'inProgress',
-//     },
-//     {
-//       label: 'Needs Review',
-//       value: 'needsReview',
-//     },
-//     {
-//       label: 'Upload',
-//       value: 'readyUpload',
-//     },
-//     {
-//         label: 'Needs Updates',
-//         value: 'needsUpdates',
-//     }
-//   ];
-
-// function createData(item, status) {
-//   return {
-//     status,
-//     item,
-//     history: [
-//       { reviewed: '2020-01-05', reviewer: 'Harry', comments: 3 },
-//       { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
-//       { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
-//       { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
-//       { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
-//       { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
-//       { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
-//     ],
-//   };
-// }
-function setLocalStorage(row) {
-    window.localStorage.setItem("items", JSON.stringify(row))
-}
-function fetchFromLocalStorage(){
-    var data = JSON.parse(window.localStorage.getItem("items"))
-    console.log("This is data", data)
-    dataRowCreation(data)
-}
-
-function dataRowCreation(data) {
-
-    for (var obj of data) {
-        var item = obj.item
-        var status = obj.status 
-        var hist = obj.history
-        rows.push({"item": item, "status": status, "history": hist})
+const trial_status = [
+    {
+      label: 'In Progress',
+      value: 'inProgress',
+    },
+    {
+      label: 'Needs Review',
+      value: 'needsReview',
+    },
+    {
+      label: 'Upload',
+      value: 'readyUpload',
+    },
+    {
+        label: 'Needs Updates',
+        value: 'needsUpdates',
     }
-    console.log("this is rows", rows)
-    return rows
+  ];
+
+function createData(item, status) {
+  return {
+    status,
+    item,
+    history: [
+      { reviewed: '2020-01-05', reviewer: 'Harry', comments: 3 },
+      { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
+      { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
+      { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
+      { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
+      { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
+      { reviewed: '2020-01-02', reviewer: 'Tali', comments: 1 },
+    ],
+  };
 }
+
+// function setLocalStorage(row) {
+//     window.localStorage.setItem("items", JSON.stringify(row))
+// }
+// function fetchFromLocalStorage(){
+//     var data = JSON.parse(window.localStorage.getItem("items"))
+//     console.log("This is data", data)
+//     dataRowCreation(data)
+// }
+
+// function dataRowCreation(data) {
+
+//     for (var obj of data) {
+//         var item = obj.item
+//         var status = obj.status 
+//         var hist = obj.history
+//         rows.push({"item": item, "status": status, "history": hist})
+//     }
+//     console.log("this is rows", rows)
+//     return rows
+// }
 
 function Row(props) {
   const { row } = props;
@@ -101,7 +102,7 @@ function Row(props) {
 
 
 //   console.log("This is row ===>", row);
-fetchFromLocalStorage()
+// fetchFromLocalStorage()
 
   return (
     <React.Fragment>
@@ -200,16 +201,16 @@ Row.propTypes = {
   }).isRequired,
 };
 
-// const rows = [
-//   createData('01-001', 'NeedsReview'),
-//   createData('01-002', 'Updated'),
-//   createData('01-003', 'Upload'),
-//   createData('10-004', 'In Progress'),
-//   createData('10-005', 'Needs Updates')
-// ];
+const rows = [
+  createData('01-001', 'NeedsReview'),
+  createData('01-002', 'Updated'),
+  createData('01-003', 'Upload'),
+  createData('10-004', 'In Progress'),
+  createData('10-005', 'Needs Updates')
+];
 
 // setLocalStorage(rows)
-fetchFromLocalStorage()
+// fetchFromLocalStorage()
 
 export default function MainTable() {
 

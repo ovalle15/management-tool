@@ -1,13 +1,13 @@
-import React from 'react';
-// import logo from '../logo.svg';
-// TO DO , https://github.com/zacbraddy/AppInAnHour_FinalForum/blob/master/src/App.js
-const ReviewPage = () => (
-        <div>
-  
-        <br></br>
+import React , { Component } from 'react';
+import PostDisplay from '../components/PostDisplay'
+import '../components/display.css'
 
-            <h5>PLACE HOLDER</h5>
 
-        </div>
-)
+class ReviewPage extends React.Component {
+    render(){
+        return (
+            <PostDisplay></PostDisplay>
+        )
+    }
+}
 export default ReviewPage;
