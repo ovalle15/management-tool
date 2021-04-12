@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import './display.css';
+import './css/display.css';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 
@@ -37,7 +37,7 @@ class PostEditor extends Component {
                 <Button 
                     variant="contained"
                     color="secondary"
-                    style={{"margin-top": "1em"}}
+                    style={{"marginTop": "1em"}}
                     className=" btn-success post-editor-button" onClick={this.createPost}
                     > 
                     Post

@@ -1,6 +1,6 @@
 import React , { Component } from 'react';
 import PostDisplay from '../components/PostDisplay'
-import '../components/display.css'
+import '../components/css/display.css'
 
 
 class ReviewPage extends React.Component {

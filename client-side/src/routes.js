@@ -1,4 +1,4 @@
-const HOME = '/items';
+const HOME = '/';
 const REVIEW ='/item/:item'
 
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PostEditor from './PostEditor';
 import Post from './Post';
-import './display.css';
+import './css/display.css';
 
 class PostDisplay extends Component {
     constructor(props) {
