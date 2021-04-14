@@ -1,12 +1,18 @@
 import React , { Component } from 'react';
 import PostDisplay from '../components/PostDisplay'
 import '../components/css/display.css'
-
+import Dropdown from '../components/Dropdown';
 
 class ReviewPage extends React.Component {
     render(){
         return (
-            <PostDisplay></PostDisplay>
+            <div> 
+                <Dropdown></Dropdown>
+                <PostDisplay></PostDisplay>
+                
+            </div>
+            
+            
         )
     }
 }

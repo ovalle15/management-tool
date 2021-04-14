@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { MainTable, ReviewPage } from './views'
 import React, { Component } from 'react';

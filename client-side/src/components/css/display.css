@@ -5,23 +5,25 @@ body {
 }
 
 .post-editor {
-  margin: 1em 20%;
+  margin: 1em 15%;
 }
 
 @media(max-width: 900px) {
   .post-editor {
     margin: 1em;
+    float: right;
   }
-  .post-body {
-    margin: 1em;
-  }
+  .panel-body {
+    float: right;
+}
 }
 .post-body {
-  margin: 1em 20%;
+  margin: 1em 15%;
 }
 
 @media(max-width: 900px) {
   .post-body {
     margin: 1em;
   }
+
 }

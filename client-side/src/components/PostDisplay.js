@@ -3,6 +3,7 @@ import PostEditor from './PostEditor';
 import Post from './Post';
 import './css/display.css';
 
+
 class PostDisplay extends Component {
     constructor(props) {
         super(props);
@@ -30,6 +31,7 @@ class PostDisplay extends Component {
                 })
             }
             <PostEditor addPost={this.addPost}></PostEditor>  
+            
             </div>
         )
     }
