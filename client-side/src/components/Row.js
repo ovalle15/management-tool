@@ -26,7 +26,7 @@ export default class Row extends React.Component {
         super(props);
         this.state = {
             row: props,
-            open: false
+            notOpen: true
         };
         console.log("This is props", this.state.row.row.item)
         console.log("This is open", this.state.open)
@@ -54,12 +54,13 @@ export default class Row extends React.Component {
         
     }
     setOpen(){
-        console.log("This is open inside setOpen", this.state.open)
-        if (this.state.open) {
-            this.state.open = false
+        
+        console.log("This is open inside setOpen", this.state.notOpen)
+        if (this.state.notOpen) {
+            this.state.notOpen = false
         } else {
-            this.state.open = true
-            console.log("This is open inside setOpen", this.state.open)
+            this.state.notOpen = true
+            console.log("This is open inside setOpen-else", this.state.notOpen)
         }
     }
 
@@ -74,7 +75,7 @@ export default class Row extends React.Component {
                   <IconButton
                       aria-label="expand row"
                       size="small" onClick={() => this.setState({open: this.setOpen()})}>
-                    {this.state.open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                    {this.state.notOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                   </IconButton>
                 </TableCell>
                 <TableCell
@@ -104,16 +105,10 @@ export default class Row extends React.Component {
                   <BiCloudDownload size="30">
                   </BiCloudDownload>
                 </TableCell>
-                <TableCell>
-                    <IconButton
-                        aria-label="delete">
-                      <DeleteIcon />
-                  </IconButton>
-                </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                  <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+                  <Collapse in={!this.state.notOpen} timeout="auto" unmountOnExit>
                     <Box margin={1}>
         
                       <Typography variant="h6" gutterBottom component="div">
