@@ -73,7 +73,6 @@ class PostDisplay extends Component {
             this.state.notOpen = true
         }
     }
-    
     updateStatus(obj){
         const itemId = this.props.children[1];
         const item = api.updateItemById(itemId, obj)
@@ -130,8 +129,8 @@ class PostDisplay extends Component {
                             // console.log("this is key", key)
                             // console.log("this is items", items)
                             return (
-                                <div className="panel panel-default post-body"> 
-                                    <div className="panel-body" key={key + index}>{items[key]}</div>
+                                <div className="panel panel-default post-body" > 
+                                    <div  className="panel-body" key={key + index} >{items[key]}</div>
                                 </div>
                             )
                         })}

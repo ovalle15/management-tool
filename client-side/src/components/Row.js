@@ -26,10 +26,11 @@ export default class Row extends React.Component {
             notOpen: true,
             open: null,
         };
-        console.log("This is props", this.state.row.row.status)
-        console.log("This is open", this.state.open)
+        console.log("This is props", this.state.row.row.history)
+        // console.log("This is open", this.state.open)
         this.setOpen = this.setOpen.bind(this)
         this.getLastIndexFromHistory = this.getLastIndexFromHistory.bind(this)
+        this.sortHistory = this.sortHistory.bind(this)
     };
     theme = createMuiTheme({
         overrides: {
@@ -48,19 +49,28 @@ export default class Row extends React.Component {
         table: null
     };
     setOpen(){
-        
-        console.log("This is open inside setOpen", this.state.notOpen)
         if (this.state.notOpen) {
             this.state.notOpen = false
         } else {
             this.state.notOpen = true
-            console.log("This is open inside setOpen-else", this.state.notOpen)
         }
     }
     getLastIndexFromHistory() {
         const history = this.state.row.row.history
         return history[history.length - 1]
         
+    }
+    sortHistory () {
+        const toSort = this.state.row.row.history
+        const sorted = toSort.sort(function(a, b){
+            var d1 = new Date(a.date) 
+            var d2 = new Date(b.date)
+            return d2 - d1 
+        })
+        
+        console.log("This is sorted?", sorted)
+        // return the first five elements 
+        return sorted.slice(0, 5)
     }
     render() {
         console.log("Row ===>", this.state.row.row);
@@ -107,19 +117,34 @@ export default class Row extends React.Component {
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                   <Collapse in={!this.state.notOpen} timeout="auto" unmountOnExit>
                     <Box margin={1}>
-        
                       <Typography variant="h6" gutterBottom component="div">
                         History
                       </Typography>
                       <Table size="small" aria-label="purchases">
                         <TableHead>
                             <TableCell align="left">Last Reviewed</TableCell>
-                            <TableCell align="left">Comments</TableCell>
                         </TableHead>
                         <TableBody>
                             <TableRow>
-                                <TableCell>{this.state.row.row.updatedAt}</TableCell>
-                                <TableCell align="left">{this.getLastIndexFromHistory()}</TableCell>
+                            {this.sortHistory().map((items, index) => {
+                                var len = this.state.row.row.history.length
+                                // console.log("This is items 1st", items )
+                                // console.log("This is len", len )
+                                // console.log("This is index", index)
+                                return (
+                                    <ul key={index}>
+                                    {Object.keys(items).map((key)=> {
+                                        // console.log("This is items", items)
+                                        // console.log("This is keys", key)
+                                        return (
+                                            <TableRow key={key + index}>
+                                                {items[key]}
+                                            </TableRow>
+                                        )  
+                                    })}
+                                    </ul>
+                                )
+                            })}
                             </TableRow>
                         </TableBody>
                       </Table>
