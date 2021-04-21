@@ -101,6 +101,8 @@ createItem = (req, res) => {
     }
 
     const item = new Table(body);
+    console.log('----------------------- createItem: item-----------------------')
+    console.log(item)
 
     if (!item) {
         console.error(`400 in 'createItem': 'Item' is malformed.`);
@@ -108,7 +110,7 @@ createItem = (req, res) => {
             .status(400)
             .json({
                 success: false,
-                message: "'Tree' is malformed"
+                message: "'item' is malformed"
             });
     }
 
@@ -123,12 +125,12 @@ createItem = (req, res) => {
                     .json({
                         success: true,
                         id: item,
-                        message: 'Tree created!',
+                        message: 'Item created!',
                     });
             };
         })
         .catch(err => {
-            console.error(`caught error in 'createITree': ${err.errors.name}`);
+            console.error(`caught error in 'createItem': ${err}`);
             Object.keys(err.errors).forEach(errorKey => {
                 console.error(`ERROR for: ${errorKey}`);
                 console.error(`=> ${((err.errors[errorKey] || {}).properties || {}).message}`);
@@ -137,8 +139,8 @@ createItem = (req, res) => {
                 .status(400)
                 .json({
                     success: false,
-                    error: err.errors,
-                    message: err.errors.name,
+                    error: err,
+                    message: err,
                 });
         });
 };

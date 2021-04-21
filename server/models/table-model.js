@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 let TableSchema = new Schema(
     {
-        items: {
+        item: {
             type: String,
             required: true
         },
