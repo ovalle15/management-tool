@@ -58,7 +58,7 @@ class PostDisplay extends Component {
         newStateFinal.posts.push(newPostBody)
         console.log("This is new state", newStateFinal)
         this.state.history.push(newStateFinal)
-        console.log("this is state in add Post", this.state.history)
+        this.setState({history: this.state.history})
         const objectToUpdate = { 
             item: this.props.children[1], 
             status: this.state.dropDownStatus, 
@@ -73,6 +73,7 @@ class PostDisplay extends Component {
             this.state.notOpen = true
         }
     }
+    
     updateStatus(obj){
         const itemId = this.props.children[1];
         const item = api.updateItemById(itemId, obj)
@@ -91,7 +92,7 @@ class PostDisplay extends Component {
         this.setState({dropDownStatus : e.target.value})
         const objectToUpdate = { 
             item: this.props.children[1], 
-            status: this.state.dropDownStatus, 
+            status: e.target.value, 
             history: this.state.history
         }
         this.updateStatus(objectToUpdate); 
@@ -122,12 +123,12 @@ class PostDisplay extends Component {
                 <div>
            
                 {this.state.history.map((items, index) => {
-                    console.log("this is items", items)
+                    // console.log("this is items", items)
                     return (
                         <ul key={index}>
                         {Object.keys(items).map((key) => {
-                            console.log("this is key", key)
-                            console.log("this is items", items)
+                            // console.log("this is key", key)
+                            // console.log("this is items", items)
                             return (
                                 <div className="panel panel-default post-body"> 
                                     <div className="panel-body" key={key + index}>{items[key]}</div>
