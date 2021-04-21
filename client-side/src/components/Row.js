@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Box from '@material-ui/core/Box';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
@@ -19,19 +18,18 @@ import Chip from '@material-ui/core/Chip';
 import Table from '@material-ui/core/Table'
 
 
-import api from '../api';
-
 export default class Row extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             row: props,
-            notOpen: true
+            notOpen: true,
+            open: null,
         };
-        console.log("This is props", this.state.row.row.item)
+        console.log("This is props", this.state.row.row.status)
         console.log("This is open", this.state.open)
-        this.deleteItem = this.deleteItem.bind(this)
         this.setOpen = this.setOpen.bind(this)
+        this.getLastIndexFromHistory = this.getLastIndexFromHistory.bind(this)
     };
     theme = createMuiTheme({
         overrides: {
@@ -49,10 +47,6 @@ export default class Row extends React.Component {
         needsRefresh: false,
         table: null
     };
-
-    componentDidMount() {
-        
-    }
     setOpen(){
         
         console.log("This is open inside setOpen", this.state.notOpen)
@@ -63,11 +57,14 @@ export default class Row extends React.Component {
             console.log("This is open inside setOpen-else", this.state.notOpen)
         }
     }
-
-    deleteItem() {
-
+    getLastIndexFromHistory() {
+        const history = this.state.row.row.history
+        return history[history.length - 1]
+        
     }
     render() {
+        console.log("Row ===>", this.state.row.row);
+        console.log("History ===>", this.state.row.row.history);
         return (
             <React.Fragment>
               <TableRow size="large" theme={this.theme}>
@@ -117,19 +114,13 @@ export default class Row extends React.Component {
                       <Table size="small" aria-label="purchases">
                         <TableHead>
                             <TableCell align="left">Last Reviewed</TableCell>
-                            <TableCell align="left">Reviewer</TableCell>
                             <TableCell align="left">Comments</TableCell>
                         </TableHead>
                         <TableBody>
-                          {this.state.row.row.history.map((historyRow) => (
-                            <TableRow key={historyRow.reviewed}>
-                              <TableCell align="left" component="th" scope="row">
-                                {historyRow.reviewed}
-                              </TableCell>
-                              <TableCell align="left">{historyRow.reviewer}</TableCell>
-                              <TableCell align="left">{historyRow.comments}</TableCell>
+                            <TableRow>
+                                <TableCell>{this.state.row.row.updatedAt}</TableCell>
+                                <TableCell align="left">{this.getLastIndexFromHistory()}</TableCell>
                             </TableRow>
-                          ))}
                         </TableBody>
                       </Table>
                     </Box>

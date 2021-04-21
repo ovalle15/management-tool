@@ -12,8 +12,7 @@ class PostEditor extends Component {
       };
         this.handlePostEditorInput = this.handlePostEditorInput.bind(this);
         this.createPost = this.createPost.bind(this) 
-  }
-    
+    }
    handlePostEditorInput(e) {
         this.setState({
             newPostBody: e.target.value

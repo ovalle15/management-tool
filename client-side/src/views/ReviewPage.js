@@ -1,18 +1,21 @@
-import React , { Component } from 'react';
+import React from 'react';
 import PostDisplay from '../components/PostDisplay'
 import '../components/css/display.css'
-import Dropdown from '../components/Dropdown';
 
 class ReviewPage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            item: props.match.params.item
+        }
+        console.log("This props in review page", props)
+    }
     render(){
         return (
             <div> 
-                <Dropdown></Dropdown>
-                <PostDisplay></PostDisplay>
-                
+                <PostDisplay> {this.state.item} </PostDisplay>
             </div>
-            
-            
         )
     }
 }

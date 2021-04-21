@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Row from '../components/Row';
 import TableBody from '@material-ui/core/TableBody';
 import Table from '@material-ui/core/Table';
@@ -12,6 +12,7 @@ class TableComp extends React.Component {
             rows: [],
             needsRefresh : false
         } 
+        console.log("this is props in tableComp", props)
     }
     componentDidMount() {
         this.setState({needsRefresh : !this.state.needsRefresh})
@@ -19,14 +20,13 @@ class TableComp extends React.Component {
         return tb.then(resp => {
            console.log(resp)
            const table = resp.data.items;
+           console.log(table)
            this.setState({
                needsRefresh: !this.state.needsRefresh,
                rows: table
            })
         })
     }
-    
-
     render() {
         return (
             <TableContainer>

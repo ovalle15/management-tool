@@ -3,7 +3,9 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-
+.formControl {
+    min-width: 15%;
+}
 .post-editor {
   margin: 1em 15%;
 }
