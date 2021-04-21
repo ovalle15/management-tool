@@ -52,7 +52,8 @@ getItems =  async(req, res) => {
     });
 };
 getItemsById = async(req, res) => {
-    await Table.find({ _id: req.params.id }, (err, Items) => {
+    console.log("THis is req===>", req.params.id)
+    await Table.find({ item: req.params.id }, (err, items) => {
         if (err) {
             console.error(`400 in 'getTreeById': ${err}`);
             return res
@@ -121,7 +122,7 @@ createItem = (req, res) => {
                     .status(201)
                     .json({
                         success: true,
-                        id: item._id,
+                        id: item,
                         message: 'Tree created!',
                     });
             };
@@ -145,10 +146,6 @@ updateItem = (req, res) => {
 
     console.log("This is the body ---->", req.body)
     const body = req.body;
-    // console.log('----------------------- updateItem: req -----------------------');
-    // console.log(req);
-    // console.log('----------------------- updateItem: body -----------------------');
-    // console.log(body);
     if (!body) {
         console.error(` 400 in 'updateTree': You must provide an Tree to update.`);
         return res
@@ -160,15 +157,14 @@ updateItem = (req, res) => {
     }
 
     const itemForUpdate = {
-        _id: req.params.id,
-        title: body.title,
-        children: body.children
+        item: req.params.id,
+        status: req.body.status,
+        history: req.body.history
     };
 
-    // console.log('----------------------- updateItem: res -----------------------');
-    // console.log(res);
+    console.log('----------------------- updateItem: itemForUpdate :', itemForUpdate);
 
-    return Table.updateOne({ _id: req.params.id }, itemForUpdate, (err, writeOpRes) => {
+    return Table.updateOne({ item: req.params.id }, itemForUpdate, (err, writeOpRes) => {
         console.log("This is the item to be updated ->", req.params.id);
         if (err) {
             console.error(`'updateItem': Item not found!`);
@@ -181,27 +177,22 @@ updateItem = (req, res) => {
                     message: 'Item not found!',
                 });
         };
-
-        console.log('----------------------- updateItem: item -----------------------');
         console.log(writeOpRes);
         return writeOpRes;
     })
     .then(result => {
-        console.log('----------------------- updateItem - findOne: result -----------------------');
+        console.log('----------------------- updateItem - result :', result);
         console.log(result);
-        console.log('----------------------- updateItem - findOne: res -----------------------');
-        console.log(res);
-        console.log(` 200 in 'updateItem': Item updated!`);
         return res
             .status(200)
             .json({
                 success: true,
-                id: req.params.id,
+                item: itemForUpdate,
                 message: 'Item updated!',
                 writeOpResult: result
             });
     }).catch(err => {
-        console.error(`caught error in 'updateTree': ${err}`);
+        console.error(`caught error in 'updateItem': ${err}`);
         console.error(err);
         return err;
     });
