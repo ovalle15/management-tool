@@ -130,9 +130,11 @@ export default class Row extends React.Component {
                                     <ul key={index}>
                                     {Object.keys(items).map((key)=> {
                                         return (
-                                            <TableRow key={key + index}>
+                                           
+                                            <TableRow key={key} >
                                                 {items[key]}
                                             </TableRow>
+                                            
                                         )  
                                     })}
                                     </ul>
