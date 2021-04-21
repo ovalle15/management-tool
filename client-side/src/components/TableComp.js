@@ -18,9 +18,7 @@ class TableComp extends React.Component {
         this.setState({needsRefresh : !this.state.needsRefresh})
         const tb = api.getAllItems()
         return tb.then(resp => {
-           console.log(resp)
            const table = resp.data.items;
-           console.log(table)
            this.setState({
                needsRefresh: !this.state.needsRefresh,
                rows: table

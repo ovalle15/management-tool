@@ -96,7 +96,6 @@ class PostDisplay extends Component {
         }
         this.updateStatus(objectToUpdate); 
     }  
-
     render(){
         console.log(" in render componenet ======>",this.state.history)
         return (
@@ -122,12 +121,9 @@ class PostDisplay extends Component {
                 <div>
            
                 {this.state.history.map((items, index) => {
-                    // console.log("this is items", items)
                     return (
                         <ul key={index}>
                         {Object.keys(items).map((key) => {
-                            // console.log("this is key", key)
-                            // console.log("this is items", items)
                             return (
                                 <div className="panel panel-default post-body" > 
                                     <div  className="panel-body" key={key + index} >{items[key]}</div>

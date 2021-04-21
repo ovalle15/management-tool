@@ -26,8 +26,7 @@ export default class Row extends React.Component {
             notOpen: true,
             open: null,
         };
-        console.log("This is props", this.state.row.row.history)
-        // console.log("This is open", this.state.open)
+        // console.log("This is props", this.state.row.row.history)
         this.setOpen = this.setOpen.bind(this)
         this.getLastIndexFromHistory = this.getLastIndexFromHistory.bind(this)
         this.sortHistory = this.sortHistory.bind(this)
@@ -127,15 +126,9 @@ export default class Row extends React.Component {
                         <TableBody>
                             <TableRow>
                             {this.sortHistory().map((items, index) => {
-                                var len = this.state.row.row.history.length
-                                // console.log("This is items 1st", items )
-                                // console.log("This is len", len )
-                                // console.log("This is index", index)
                                 return (
                                     <ul key={index}>
                                     {Object.keys(items).map((key)=> {
-                                        // console.log("This is items", items)
-                                        // console.log("This is keys", key)
                                         return (
                                             <TableRow key={key + index}>
                                                 {items[key]}
