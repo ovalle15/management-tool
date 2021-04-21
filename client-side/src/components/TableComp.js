@@ -19,7 +19,7 @@ class TableComp extends React.Component {
             rows: [],
             needsRefresh : false
         } 
-        console.log("this is props in tableComp", props)
+        this.addRow = this.addRow.bind(this)
     }
     componentDidMount() {
         this.setState({needsRefresh : !this.state.needsRefresh})
@@ -30,8 +30,6 @@ class TableComp extends React.Component {
                needsRefresh: !this.state.needsRefresh,
                rows: table
            })
-           console.log("This is the state in Table Comp ====>", this.state)
-           this.addRow = this.addRow.bind(this)
         })
     }
     addRow() {
@@ -40,21 +38,24 @@ class TableComp extends React.Component {
             console.log("This is input", input);
             const newRow = {history: [], item: input, status: "", updatedAt: new Date()}
             console.log("This is new row", newRow)
+            this.state.rows.push(newRow)
+            this.setState({rows: this.state.rows})
             const newItem = api.insertItem(newRow);
             return newItem.then(resp => {
-                console.log(resp)
+                if (resp) {
+                    console.log("A new row has been created", resp.data)
+                } return resp;
             })
-
+            .catch(err=> {
+                console.error(err);
+                return err;
+            })
         } 
-  
     }
-
     render() {
         
         return (
             <TableContainer>
-            
-                
                 <Table aria-label="collapsible table">
                     <TableBody>
                     {this.state.rows.map((row) => (
@@ -67,7 +68,6 @@ class TableComp extends React.Component {
                     <AddIcon />
                 </Fab>
             </TableContainer>
-
         );
     }
 }

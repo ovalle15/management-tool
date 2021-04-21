@@ -66,14 +66,10 @@ export default class Row extends React.Component {
             var d2 = new Date(b.date)
             return d2 - d1 
         })
-        
-        console.log("This is sorted?", sorted)
         // return the first five elements 
         return sorted.slice(0, 5)
     }
     render() {
-        console.log("Row ===>", this.state.row.row);
-        console.log("History ===>", this.state.row.row.history);
         return (
             <React.Fragment>
               <TableRow size="large" theme={this.theme}>

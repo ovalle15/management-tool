@@ -24,7 +24,6 @@ class PostDisplay extends Component {
         this.setOpen = this.setOpen.bind(this)
         this._handleChange = this._handleChange.bind(this)
         this.updateStatus = this.updateStatus.bind(this)
-        console.log("THis is current state of posts ===>", this.state.history)   
     }
     trial_status = [
         {
@@ -49,14 +48,15 @@ class PostDisplay extends Component {
         const item = api.getItemsById(itemId);
         return item.then(resp => {
             const discussionItem = resp.data.item;
-            console.log("this is discItems===>", discussionItem.history)
-            this.setState({dropDownStatus: discussionItem.status, history : discussionItem.history})
+            this.setState({
+                dropDownStatus: discussionItem.status, 
+                history : discussionItem.history
+            })
         })
     }  
     addPost(newPostBody) {
         const newStateFinal = {date: new Date().toUTCString(), posts: []}
         newStateFinal.posts.push(newPostBody)
-        console.log("This is new state", newStateFinal)
         this.state.history.push(newStateFinal)
         this.setState({history: this.state.history})
         const objectToUpdate = { 
@@ -79,7 +79,7 @@ class PostDisplay extends Component {
         return item.then(resp => {
             if (resp){
                 const updatedItem = resp.data;
-                console.log("This is updatedItem", updatedItem)
+                console.log("This item has been updated", updatedItem)
             } return resp;
         })
         .catch(err=> {
@@ -97,13 +97,17 @@ class PostDisplay extends Component {
         this.updateStatus(objectToUpdate); 
     }  
     render(){
-        console.log(" in render componenet ======>",this.state.history)
         return (
             <div>
                 <br></br>
                 <h3>Protocol Number : {this.props.children[1]} </h3>
                 <br></br>
-                <FormControl style={{minWidth: 150, marginTop: "2%", float: 'right', marginBottom: "2%", marginRight: "85%"}}>
+                <FormControl style={{
+                    minWidth: 150, 
+                    marginTop: "2%", 
+                    float: 'right', 
+                    marginBottom: "2%", 
+                    marginRight: "85%"}}>
                     <InputLabel> Status </InputLabel> 
                     <Select 
                         value={this.state.dropDownStatus}
@@ -119,7 +123,6 @@ class PostDisplay extends Component {
                     </Select>
                 </FormControl>
                 <div>
-           
                 {this.state.history.map((items, index) => {
                     return (
                         <ul key={index}>
