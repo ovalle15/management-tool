@@ -63,7 +63,12 @@ class PostDisplay extends Component {
         var day = '' + newDate.getDate();
         var year = newDate.getFullYear();
         var hour = newDate.getHours();
-        var minutes = "0" + newDate.getMinutes();
+        var minutes;
+        if (minutes.length < 2) {
+            minutes = "0" + newDate.getMinutes();
+        } else {
+            minutes = newDate.getMinutes();
+        }
         var ampm = hour >= 12 ? 'pm': 'am';
         hour = hour % 12;
         var finalDateTime = [month, day, year].join('/') + 
