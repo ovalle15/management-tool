@@ -24,6 +24,7 @@ class PostDisplay extends Component {
         this.setOpen = this.setOpen.bind(this)
         this._handleChange = this._handleChange.bind(this)
         this.updateStatus = this.updateStatus.bind(this)
+        this.formatDate = this.formatDate.bind(this)
     }
     trial_status = [
         {
@@ -54,8 +55,22 @@ class PostDisplay extends Component {
             })
         })
     }  
+    formatDate() {
+        const newDate = new Date();
+        var month = '' + ("0" + (newDate.getMonth() + 1)).slice(-2);
+        var day = '' + newDate.getDate();
+        var year = newDate.getFullYear();
+        var hour = newDate.getHours();
+        var minutes = newDate.getMinutes();
+        var ampm = hour >= 12 ? 'pm': 'am';
+        hour = hour % 12;
+        var finalDateTime = [month, day, year].join('/') + 
+        " " + hour + ":" + minutes + " " + ampm 
+        console.log("This finalDate", finalDateTime)
+        return finalDateTime
+    }
     addPost(newPostBody) {
-        const newStateFinal = {date: new Date().toUTCString(), posts: []}
+        const newStateFinal = {date: this.formatDate(), posts: []}
         newStateFinal.posts.push(newPostBody)
         this.state.history.push(newStateFinal)
         this.setState({history: this.state.history})

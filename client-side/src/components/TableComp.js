@@ -20,6 +20,7 @@ class TableComp extends React.Component {
             needsRefresh : false
         } 
         this.addRow = this.addRow.bind(this)
+        this.formatDate = this.formatDate.bind(this)
     }
     componentDidMount() {
         this.setState({needsRefresh : !this.state.needsRefresh})
@@ -32,11 +33,25 @@ class TableComp extends React.Component {
            })
         })
     }
+    formatDate() {
+        const newDate = new Date();
+        var month = '' + ("0" + (newDate.getMonth() + 1)).slice(-2);
+        var day = '' + newDate.getDate();
+        var year = newDate.getFullYear();
+        var hour = newDate.getHours();
+        var minutes = newDate.getMinutes();
+        var ampm = hour >= 12 ? 'pm': 'am';
+        hour = hour % 12;
+        var finalDateTime = [month, day, year].join('/') + 
+        " " + hour + ":" + minutes + " " + ampm 
+        console.log("This finalDate", finalDateTime)
+        return finalDateTime
+    }
     addRow() {
         let input = window.prompt("Enter Protocol Number");
         if (input) {
             console.log("This is input", input);
-            const newRow = {history: [], item: input, status: "", updatedAt: new Date()}
+            const newRow = {history: [], item: input, status: "", updatedAt: this.formatDate()}
             console.log("This is new row", newRow)
             this.state.rows.push(newRow)
             this.setState({rows: this.state.rows})
