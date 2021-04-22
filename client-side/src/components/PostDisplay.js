@@ -7,6 +7,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import api from '../api'
+import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 
 
@@ -61,7 +63,7 @@ class PostDisplay extends Component {
         var day = '' + newDate.getDate();
         var year = newDate.getFullYear();
         var hour = newDate.getHours();
-        var minutes = newDate.getMinutes();
+        var minutes = "0" + newDate.getMinutes();
         var ampm = hour >= 12 ? 'pm': 'am';
         hour = hour % 12;
         var finalDateTime = [month, day, year].join('/') + 
@@ -117,6 +119,34 @@ class PostDisplay extends Component {
                 <br></br>
                 <h3>Protocol Number : {this.props.children[1]} </h3>
                 <br></br>
+                <div class="features_">
+                    <Button 
+                        variant="outlined"
+                        color="secondary" 
+                        href={`https://ctportal.partners.org/protocollookup_show.asp?protid=${this.props.children[1]}`}
+                        target="_blank"
+                        >
+                        OncPro  
+                    </Button>
+                    &nbsp;
+                    <Button 
+                        variant="outlined" 
+                        color="secondary" 
+                        href={`https://matchminer.dfci.harvard.edu/#/clinicaltrials/${this.props.children[1]}`}
+                        target="_blank"
+                        > 
+                        Matchminer
+                    </Button>
+                    &nbsp;
+                    <Button
+                        variant="outlined"
+                        color="secondary" 
+                        href={`https://mm-stage.dfci.harvard.edu//#/clinicaltrials/${this.props.children[1]}`}
+                        target="_blank"
+                        > 
+                        Staging
+                    </Button>
+                </div>
                 <FormControl style={{
                     minWidth: 150, 
                     marginTop: "2%", 

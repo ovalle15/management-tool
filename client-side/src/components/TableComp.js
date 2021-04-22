@@ -39,7 +39,7 @@ class TableComp extends React.Component {
         var day = '' + newDate.getDate();
         var year = newDate.getFullYear();
         var hour = newDate.getHours();
-        var minutes = newDate.getMinutes();
+        var minutes = "0" + newDate.getMinutes();
         var ampm = hour >= 12 ? 'pm': 'am';
         hour = hour % 12;
         var finalDateTime = [month, day, year].join('/') + 
