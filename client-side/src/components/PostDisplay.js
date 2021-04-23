@@ -62,7 +62,8 @@ class PostDisplay extends Component {
         var year = newDate.getFullYear();
         var hour = newDate.getHours();
         var minutes = newDate.getMinutes();
-        if (minutes.length < 2) {
+        console.log("minutes len", minutes)
+        if (minutes < 10) {
             minutes = "0" + newDate.getMinutes();
         } else {
             minutes = newDate.getMinutes();

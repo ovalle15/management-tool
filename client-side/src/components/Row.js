@@ -120,25 +120,25 @@ export default class Row extends React.Component {
                       <Table size="small" aria-label="purchases">
                         <TableHead>
                             <TableCell align="left">Last Reviewed</TableCell>
+                            <TableCell></TableCell>
                         </TableHead>
                         <TableBody>
-                            <TableRow>
                             {this.sortHistory().map((items, index) => {
                                 return (
-                                    <ul key={index}>
+                                    <TableRow key={index}>
                                     {Object.keys(items).map((key)=> {
                                         return (
                                            
-                                            <TableRow key={key} >
+                                            <TableCell key={key} >
                                                 {items[key]}
-                                            </TableRow>
+                                            </TableCell>
                                             
                                         )  
                                     })}
-                                    </ul>
+                                    </TableRow>
                                 )
                             })}
-                            </TableRow>
+                       
                         </TableBody>
                       </Table>
                     </Box>
