@@ -122,7 +122,7 @@ class PostDisplay extends Component {
                 <br></br>
                 <h3>Protocol Number : {this.props.children[1]} </h3>
                 <br></br>
-                <div class="features_">
+                <div className="features_">
                     <Button 
                         variant="outlined"
                         color="secondary" 
