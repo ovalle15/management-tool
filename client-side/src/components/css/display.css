@@ -34,6 +34,8 @@ h3 {
 }
 .post-body {
   margin: 1em 15%;
+  font-weight: 300;
+  line-height: 0.5;
 }
 
 @media(max-width: 900px) {

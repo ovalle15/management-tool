@@ -3,7 +3,6 @@ import Row from '../components/Row';
 import TableBody from '@material-ui/core/TableBody';
 import Table from '@material-ui/core/Table';
 import TableContainer from '@material-ui/core/TableContainer';
-import Button from '@material-ui/core/Button';
 import api from '../api';
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add';
@@ -39,7 +38,7 @@ class TableComp extends React.Component {
         var day = '' + newDate.getDate();
         var year = newDate.getFullYear();
         var hour = newDate.getHours();
-        var minutes;
+        var minutes = newDate.getMinutes();
         if (minutes.length < 2) {
             minutes = "0" + newDate.getMinutes();
         } else {

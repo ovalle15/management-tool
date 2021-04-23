@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import './css/display.css';
 import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
 
 class PostEditor extends Component {
   constructor(props) {
