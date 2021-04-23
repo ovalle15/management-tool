@@ -104,8 +104,10 @@ export default class Row extends React.Component {
                   />
                 </TableCell>
                 <TableCell>
+                <Link  href={`https://mm-stage.dfci.harvard.edu/curate/${this.state.row.row.item}`}>
                   <BiCloudDownload size="30">
                   </BiCloudDownload>
+                  </Link>
                 </TableCell>
               </TableRow>
               <TableRow>
