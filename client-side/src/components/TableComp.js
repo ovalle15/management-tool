@@ -6,6 +6,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import api from '../api';
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add';
+import SelectFile from '../components/SelectFile'
 
 
 import '../components/css/display.css';
@@ -86,7 +87,9 @@ class TableComp extends React.Component {
                 <Fab aria-label='Add'  color='primary' size="medium" onClick= {this.addRow}>
                     <AddIcon />
                 </Fab>
+                <SelectFile></SelectFile>
             </TableContainer>
+            
         );
     }
 }
