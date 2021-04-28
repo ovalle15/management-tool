@@ -5,7 +5,6 @@ const cors = require('cors');
 const db = require('./db');
 const routerTable = require('./routes/table-router');
 
-
 const app = express();
 const apiPort = 3000;
 
@@ -20,7 +19,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', routerTable);
-
 
 app.listen(apiPort, () => {
     console.log(` Server running on port ${apiPort}`);
