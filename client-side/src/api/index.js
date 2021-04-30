@@ -1,6 +1,7 @@
 import https from 'https';
 import axios from 'axios';
 
+
 const api = axios.create({
     baseURL: 'http://localhost:3000/api',
     hostname: 'http://localhost:3000/',
@@ -19,7 +20,7 @@ export const updateItemById = (id, payload) => api.put(`/item/${id}`, payload);
 
 export const deleteItemById = id => api.delete(`/item/${id}`);
 
-export const uploadItem = payload => api.post('/upload', payload);
+export const uploadItem = payload => api.post(`/upload`, payload);
 
 const apis = {
     getAllItems,
