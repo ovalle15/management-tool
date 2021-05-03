@@ -21,9 +21,9 @@ let TableSchema = new Schema(
 	timestamps: true
 });
 
-const Table = mongoose.model('table', TableSchema);
-console.log("THIS IS THE Table ---->", Table);
-module.exports = mongoose.model('items', TableSchema);
+const Table = mongoose.model('items', TableSchema);
+// console.log("THIS IS THE Table ---->", Table);
+module.exports = Table;
 
 
 

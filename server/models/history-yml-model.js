@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 let YmlSchema = new Schema(
     {
         ymlDoc : {
-            type: Array,
-            of: Object,
+            type: Object,
             required: true
         }
     }, {
@@ -13,5 +12,5 @@ let YmlSchema = new Schema(
 });
 
 const HistYml = mongoose.model('historyTrials', YmlSchema);
-console.log("THIS IS THE HistYml -------->", HistYml);
+// console.log("THIS IS THE HistYml -------->", HistYml);
 module.exports = HistYml;
