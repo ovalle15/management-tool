@@ -75,20 +75,33 @@ class TableComp extends React.Component {
     render() {
         
         return (
-            <TableContainer>
-                <Table aria-label="collapsible table">
-                    <TableBody>
-                    {this.state.rows.map((row) => (
-                        <Row key={row.item} row={row} />
-                    ))}
-                    </TableBody>
-                </Table>
-                <br></br>
-                <Fab aria-label='Add'  color='primary' size="medium" onClick= {this.addRow}>
-                    <AddIcon />
-                </Fab>
+            <div>
+                <h1 className="heading-select-file">
+                    Select JSON file to store
+                </h1>
                 <SelectFile></SelectFile>
-            </TableContainer>
+                <br></br>
+                <br></br>
+               
+                <TableContainer>
+                    <Table aria-label="collapsible table">
+                        <TableBody>
+                        {this.state.rows.map((row) => (
+                            <Row key={row.item} row={row} />
+                        ))}
+                        </TableBody>
+                    </Table>
+                    <br></br>
+                    
+                    <Fab aria-label='Add'  color='primary' size="medium" onClick= {this.addRow}>
+                        <AddIcon />
+                    </Fab>
+                    <h1 className="entry-trial">
+                            New trial entry
+                    </h1>
+                    
+                </TableContainer>
+            </div>
             
         );
     }

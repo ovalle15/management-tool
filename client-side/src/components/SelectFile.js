@@ -1,10 +1,7 @@
 import React from 'react';
-import axios from 'axios';
-import api from '../api'
-import Button from '@material-ui/core/Button';
-import { runInThisContext } from 'vm';
-const yaml = require('js-yaml')
-const fs = require('fs')
+import "bootstrap/dist/css/bootstrap.min.css";
+import api from '../api';
+import '../components/css/display.css';
 
 
 class SelectFile extends React.Component {
@@ -45,10 +42,22 @@ class SelectFile extends React.Component {
     }
     render () {
         console.log("this is files onrender ===>",this.state.uploadedFile)
-        return <span>
-            <input type="file" name="file" accept=".json" onChange={this.uploadFile}/>
-            <button type="button" className="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
-        </span>
+        return  <div>
+                    <label htmlFor="formFile" className="label-Input">
+                    </label>
+                    <input 
+                        type="file" 
+                        className="input-file"
+                        id="formFile"
+                        accept=".json" 
+                        onChange={this.uploadFile}
+                    />
+                    <br></br>
+           
+                    <div className="Input_Button">
+                        <button className="btn btn-outline-info" type="button" onClick={this.onClickHandler}>Upload</button>
+                    </div>
+                </div>
     }
 }
 export default SelectFile;
