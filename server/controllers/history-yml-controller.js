@@ -17,31 +17,7 @@ uploadYml = async (req, res) => {
     const fileToInsert = {
         ymlDoc: JSON.parse(File)
     }
-  
-    // const {
-    //     file,
-    //     body :{ item }
-    // } = req;
-    
-    // function todayDate(){
-    //     const date = new Date();
-    //     console.log("This is date", date)
-    //     const day = "0" + date.getDate()
-    //     const month = '' + ("0" + (date.getMonth() + 1)).slice(-2);
-    //     const year = date.getFullYear();
-    //     const finalDate = [month, day, year].join("-")
-    //     return finalDate
-    // }
-    
-
-    // const filename = item + "_" +  todayDate() + file.clientReportedFileExtension  
-    // await pipeline(
-    //     file.stream, 
-    //     fs.createWriteStream(`${__dirname}/../uploads/${filename}`)
-    // );
-    // res.send("File uploaded as "+ filename)
-
-    
+      
     console.log("This is the file To Insert ========> ", fileToInsert.ymlDoc)
     const yml = HistYml(fileToInsert)
     console.log('----------------------- createItem: yml-----------------------')
