@@ -98,7 +98,7 @@ export default class Row extends React.Component {
                 <TableCell
                   align="center">
                   <Chip
-                  label={this.state.row.row.status}
+                  label={this.state.row.row.status || "No Status"}
                   color="primary"
                   variant="outlined"
                   />

@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
 import api from '../api';
 import '../components/css/display.css';
@@ -37,6 +38,7 @@ class SelectFile extends React.Component {
         return yml.then(resp => {
             if (resp) {
                 console.log("This is is the response from the request", resp)
+                window.alert("Trial saved in history")
             } return resp;
         })
     }
@@ -55,7 +57,12 @@ class SelectFile extends React.Component {
                     <br></br>
            
                     <div className="Input_Button">
-                        <button className="btn btn-outline-info" type="button" onClick={this.onClickHandler}>Upload</button>
+                        <Button 
+                            variant="outlined"
+                            color="primary" 
+                            onClick={this.onClickHandler}>
+                            Upload
+                        </Button>
                     </div>
                 </div>
     }
