@@ -12,15 +12,18 @@ class SelectFile extends React.Component {
         this.state = {
             uploadedFile : null
         }
+
         this.uploadFile = this.uploadFile.bind(this);
         this.onClickHandler = this.onClickHandler.bind(this);
         this.trimExtension = this.trimExtension.bind(this);
     
     }
+
     uploadFile(event) {
        console.log("this is events", event.target.files[0])
         this.setState({ uploadedFile:  event.target.files[0]})        
     }
+
     trimExtension () {
         var filename = this.state.uploadedFile.name
         const trimmedFilename = filename.split('.').slice(0, -1).join('.')
@@ -38,10 +41,11 @@ class SelectFile extends React.Component {
         return yml.then(resp => {
             if (resp) {
                 console.log("This is is the response from the request", resp)
-                window.alert("Trial saved in history")
+                window.alert("Trial history saved")
             } return resp;
         })
     }
+
     render () {
         console.log("this is files onrender ===>",this.state.uploadedFile)
         return  <div>
@@ -51,7 +55,7 @@ class SelectFile extends React.Component {
                         type="file" 
                         className="input-file"
                         id="formFile"
-                        accept=".json" 
+                        accept=".yml" 
                         onChange={this.uploadFile}
                     />
                     <br></br>

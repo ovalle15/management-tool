@@ -22,6 +22,7 @@ class TableComp extends React.Component {
         this.addRow = this.addRow.bind(this)
         this.formatDate = this.formatDate.bind(this)
     }
+
     componentDidMount() {
         this.setState({needsRefresh : !this.state.needsRefresh})
         const tb = api.getAllItems()
@@ -33,6 +34,7 @@ class TableComp extends React.Component {
            })
         })
     }
+
     formatDate() {
         const newDate = new Date();
         var month = '' + ("0" + (newDate.getMonth() + 1)).slice(-2);
@@ -77,7 +79,7 @@ class TableComp extends React.Component {
         return (
             <div>
                 <h1 className="heading-select-file">
-                    Select JSON file to store
+                    Add to trial's JSON history
                 </h1>
                 <SelectFile></SelectFile>
                 <br></br>
