@@ -49,7 +49,15 @@ class SelectFile extends React.Component {
     render () {
         console.log("this is files onrender ===>",this.state.uploadedFile)
         return  <div>
-                    <label htmlFor="formFile" className="label-Input">
+                    <label
+                        htmlFor="formFile"
+                        className="label-Input"
+                        style={{
+                            display: "block",
+                            margin: "10px 10px 0" 
+                        }}
+                    >
+                        Choose a .yml file to upload
                     </label>
                     <input 
                         type="file" 
@@ -60,8 +68,12 @@ class SelectFile extends React.Component {
                     />
                     <br></br>
            
-                    <div className="Input_Button">
+                    <div
+                        className="Input_Button"
+                        style={{ marginTop: "10px" }}
+                    >
                         <Button 
+                            size="small"
                             variant="outlined"
                             color="primary" 
                             onClick={this.onClickHandler}>

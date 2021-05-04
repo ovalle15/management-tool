@@ -70,6 +70,43 @@ export default class Row extends React.Component {
         return sorted.slice(0, 5)
     }
     render() {
+        let StyledChip;
+        if (this.state.row.row.status === 'Needs Review') {
+            StyledChip =   <Chip
+                            label={this.state.row.row.status}
+                            color="default"
+                            style={{backgroundColor : 'rgba(182, 62, 32, 0.35)'}}
+                            variant="outlined"
+                        />
+        } else if (this.state.row.row.status === "In Progress") {
+            StyledChip = <Chip
+                            label={this.state.row.row.status}
+                            color="default"
+                            style={{backgroundColor : 'rgba(220, 79, 44, 0.74)'}}
+                            variant="outlined"
+                        />
+        } else if ( this.state.row.row.status === "Upload") {
+            StyledChip = <Chip
+                            label={this.state.row.row.status}
+                            color="default"
+                            style={{backgroundColor : 'rgba(124, 182, 32, 0.35)'}}
+                            variant="outlined"
+                        />
+        } else if (this.state.row.row.status === "Needs Updates") {
+            StyledChip = <Chip
+                            label={this.state.row.row.status}
+                            color="default"
+                            style={{backgroundColor : 'rgba(240, 212, 141, 0.74)'}}
+                            variant="outlined"
+                        />
+        } else {
+            StyledChip = <Chip
+                            label="No Status"
+                            color="primary"
+                            variant="outlined"
+                        />
+        }
+
         return (
             <React.Fragment>
               <TableRow size="large" theme={this.theme}>
@@ -97,11 +134,7 @@ export default class Row extends React.Component {
                 </TableCell>
                 <TableCell
                   align="center">
-                  <Chip
-                  label={this.state.row.row.status || "No Status"}
-                  color="primary"
-                  variant="outlined"
-                  />
+                  {StyledChip}
                 </TableCell>
                 <TableCell>
                 <Link  href={`https://mm-stage.dfci.harvard.edu/curate/${this.state.row.row.item}`}>
