@@ -1,21 +1,18 @@
 
 const HistYml = require('../models/history-yml-model')
-const uploadFilesMiddleWare = require('../middleware/upload');
-
 const fs = require('fs');
-const { promisify } = require("util");
-const pipeline = promisify(require("stream").pipeline)
+const yaml = require('js-yaml');
+
 
 
 uploadYml = async (req, res) => {
-    console.log("=================files uploaded============")
-    console.log(req.body)
-    console.log("=================files uploaded============")
+    console.log("=================file uploaded============")
     console.log(req.file)
-    const File = fs.readFileSync(req.file.path)
+    const File = yaml.load(fs.readFileSync(req.file.path))
+
 
     const fileToInsert = {
-        ymlDoc: JSON.parse(File)
+        ymlDoc: File
     }
       
     console.log("This is the file To Insert ========> ", fileToInsert.ymlDoc)
