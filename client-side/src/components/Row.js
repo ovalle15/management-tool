@@ -109,7 +109,10 @@ export default class Row extends React.Component {
 
         return (
             <React.Fragment>
-              <TableRow size="large" theme={this.theme}>
+              <TableRow 
+                    size="large" 
+                    theme={this.theme}
+                >
                 <TableCell>
                   <IconButton
                       aria-label="expand row"
@@ -124,7 +127,9 @@ export default class Row extends React.Component {
                 </TableCell>
                 <TableCell
                   align="center">
-                  <Link href={`/item/${this.state.row.row.item}`}>
+                  <Link 
+                    href={`/item/${this.state.row.row.item}`}
+                    >
                     <Button
                         variant="outlined"
                         color="primary">
@@ -137,10 +142,12 @@ export default class Row extends React.Component {
                   {StyledChip}
                 </TableCell>
                 <TableCell>
-                <Link  href={`https://mm-stage.dfci.harvard.edu/curate/${this.state.row.row.item}`}>
+                <Link  
+                  href={`https://mm-stage.dfci.harvard.edu/curate/${this.state.row.row.item}`}
+                >
                   <BiCloudDownload size="30">
                   </BiCloudDownload>
-                  </Link>
+                </Link>
                 </TableCell>
               </TableRow>
               <TableRow>
