@@ -20,11 +20,10 @@ I have created a tool that could potentially help my team at Dana Farber with tr
 
 ### To start the application:
 
-1) Create a mongo db called management
-    a) Three different collections will be created once you start using the application
-        - items: history comments and trial status will are stored in this collection
-        - users: stores user information
-        - historyTrials: yml document are stored in this collection
+1) Create a mongo db called management. Three different collections will be created once you start using the application
+    - items: history comments and trial status will are stored in this collection
+    - users: stores user information
+    - historyTrials: yml document are stored in this collection
 
 2) Navigate to the client-side and run the following:
     -  npm i
