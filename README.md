@@ -3,7 +3,7 @@ trial management tool
 
 I have created a tool that could potentially help my team at Dana Farber with trial managment.
 
-The workflow this application could support goes as follow:
+The workflow this application could support:
 
 Not admin users:
 
@@ -18,7 +18,7 @@ upload a trial (yml document) into a mongo database to save the trial that was a
 To start the application:
 
 1) Create a mongo db called management
-    a) Four different collections will be created once you start using the application
+    a) Three different collections will be created once you start using the application
         - items: history comments and trial status will are stored in this collection
         - users: stores user information
         - historyTrials: yml document are stored in this collection
@@ -31,7 +31,7 @@ To start the application:
     - npm i
     - nodemon index.js
 
-Note that many of the endpoints use in the application are only for internal uses.
+Note that many of the endpoints use in the application are only for internal use.
 
 Buttons meant to be functional internally only :
 - Download cloud (main page) -> downloads a yml doc with the protocol number specified
