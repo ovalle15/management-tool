@@ -3,19 +3,19 @@ trial management tool
 
 I have created a tool that could potentially help my team at Dana Farber with trial managment.
 
-The workflow this application could support:
+## The workflow this application could support:
 
-Not admin users:
+### Not admin users:
 
 1) Add a row to the table with the protocol that you want to review
 2) Add a comment
 3) Change status
 
-Admin users:
+### Admin users:
 
 upload a trial (yml document) into a mongo database to save the trial that was approved.
 
-To start the application:
+### To start the application:
 
 1) Create a mongo db called management
     a) Three different collections will be created once you start using the application
