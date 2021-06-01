@@ -3,7 +3,7 @@ trial management tool
 
 I have created a tool that could potentially help my team at Dana Farber with trial managment.
 
-## The workflow this application could support:
+## Trial management workflow this application could support:
 
 ### Not admin users:
 
@@ -13,7 +13,10 @@ I have created a tool that could potentially help my team at Dana Farber with tr
 
 ### Admin users:
 
-upload a trial (yml document) into a mongo database to save the trial that was approved.
+1) Add a row to the table with the protocol that you want to review
+2) Add a comment
+3) Change status
+4) Upload a trial (yml document) into a mongo database to save the trial that was approved.
 
 ### To start the application:
 
@@ -31,9 +34,9 @@ upload a trial (yml document) into a mongo database to save the trial that was a
     - npm i
     - nodemon index.js
 
-Note that many of the endpoints use in the application are only for internal use.
+#### Note that many of the endpoints use in the application are only for internal use at Dana Farber.
 
-Buttons meant to be functional internally only :
+Buttons meant to be only functional internally:
 - Download cloud (main page) -> downloads a yml doc with the protocol number specified
 - MatchMiner (review page) -> Navigates to the production environment
 - Staging (review page) -> Navigates to the staging environment
