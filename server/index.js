@@ -4,7 +4,10 @@ const cors = require('cors');
 
 const db = require('./db');
 const routerTable = require('./routes/table-router');
-const hisRouter = require('./routes/history-yml-router')
+const hisRouter = require('./routes/history-yml-router');
+const passport = require("passport");
+const users = require("./routes/users-router");
+
 
 const app = express();
 const apiPort = 3000;
@@ -21,7 +24,12 @@ app.get('/', (req, res) => {
 
 app.use('/api', routerTable);
 app.use('/api', hisRouter)
-
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+// Routes
+app.use("/api/users", users);
 
 app.listen(apiPort, () => {
     console.log(` Server running on port ${apiPort}`);
