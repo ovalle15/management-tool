@@ -6,12 +6,11 @@ import TableContainer from '@material-ui/core/TableContainer';
 import api from '../api';
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add';
-import Dashboard from '../components/auth/Dashboard'
+import LogOut from './auth/LogOut'
 
 
 
 import '../components/css/display.css';
-import { DashboardTemp } from '../views';
 
 
 class TableComp extends React.Component {
@@ -80,7 +79,7 @@ class TableComp extends React.Component {
 
         return (
             <div>
-                <Dashboard></Dashboard>
+                <LogOut></LogOut>
                 <h1 className="heading-table">
                     Trial Management Tool
                 </h1>

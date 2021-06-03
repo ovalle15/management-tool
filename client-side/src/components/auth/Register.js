@@ -20,9 +20,8 @@ class Register extends Component {
     };
   }
 componentDidMount() {
-    // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/");
     }
   }
 componentWillReceiveProps(nextProps) {
@@ -144,6 +143,7 @@ return (
                   variant="outlined"
                   color="primary"
                   size="large"
+                  onClick={this.onSubmit}
                 >
                   Sign up
                 </Button>

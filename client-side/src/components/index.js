@@ -5,7 +5,7 @@ import TableComp from './TableComp';
 import Landing from './auth/Landing';
 import Register from './auth/Register';
 import Login from './auth/Login';
-import Dashboard from './auth/Dashboard'
+import LogOut from './auth/LogOut'
 
 export {
     Post,
@@ -15,5 +15,5 @@ export {
     Landing,
     Register,
     Login,
-    Dashboard
+    LogOut
 }

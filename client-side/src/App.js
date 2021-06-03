@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import { LoginPage, MainTable, RegisterPage, ReviewPage, LandingPage, DashboardTemp, AdminPage } from './views'
+import { LoginPage, MainTable, RegisterPage, ReviewPage, LandingPage, AdminPage } from './views'
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { routes } from './routes';
@@ -45,7 +45,6 @@ class App extends Component {
         <Route exact path={routes.LANDING} component= {LandingPage}></Route>
         <Route exact path={routes.LOGIN} component={LoginPage}></Route>
         <Route exact path={routes.REGISTER} component={RegisterPage}></Route>
-        <PrivateRoute exact path={routes.DASHBOARD} component={DashboardTemp}></PrivateRoute>
       </Switch>
     );
     return (
