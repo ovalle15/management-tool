@@ -6,10 +6,12 @@ import TableContainer from '@material-ui/core/TableContainer';
 import api from '../api';
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add';
-import SelectFile from '../components/SelectFile'
+import Dashboard from '../components/auth/Dashboard'
+
 
 
 import '../components/css/display.css';
+import { DashboardTemp } from '../views';
 
 
 class TableComp extends React.Component {
@@ -18,7 +20,7 @@ class TableComp extends React.Component {
         this.state = {
             rows: [],
             needsRefresh : false
-        } 
+        }
         this.addRow = this.addRow.bind(this)
         this.formatDate = this.formatDate.bind(this)
     }
@@ -49,8 +51,8 @@ class TableComp extends React.Component {
         }
         var ampm = hour >= 12 ? 'pm': 'am';
         hour = hour % 12;
-        var finalDateTime = [month, day, year].join('/') + 
-        " " + hour + ":" + minutes + " " + ampm 
+        var finalDateTime = [month, day, year].join('/') +
+        " " + hour + ":" + minutes + " " + ampm
         console.log("This finalDate", finalDateTime)
         return finalDateTime
     }
@@ -72,19 +74,20 @@ class TableComp extends React.Component {
                 console.error(err);
                 return err;
             })
-        } 
+        }
     }
     render() {
-        
+
         return (
             <div>
-                <h1 className="heading-select-file">
-                    Add to trial's JSON history
+                <Dashboard></Dashboard>
+                <h1 className="heading-table">
+                    Trial Management Tool
                 </h1>
-                <SelectFile></SelectFile>
                 <br></br>
                 <br></br>
-               
+                <br></br>
+
                 <TableContainer>
                     <Table aria-label="collapsible table">
                         <TableBody>
@@ -94,17 +97,18 @@ class TableComp extends React.Component {
                         </TableBody>
                     </Table>
                     <br></br>
-                    
+
                     <Fab aria-label='Add'  color='primary' size="medium" onClick= {this.addRow}>
                         <AddIcon />
                     </Fab>
                     <h1 className="entry-trial">
                             New trial entry
                     </h1>
-                    
+
                 </TableContainer>
+
             </div>
-            
+
         );
     }
 }

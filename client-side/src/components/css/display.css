@@ -4,14 +4,14 @@ body {
   font-family: sans-serif;
 }
 h3 {
-    color: #f50057; 
-    font-size: 75px; 
-    line-height: 74px; 
-    font-weight: 700; 
-    margin: 0 5px 24px; 
-    float: middle; 
-    padding: 10px; 
-    margin: 0 5px 24px; 
+    color: #f50057;
+    font-size: 75px;
+    line-height: 74px;
+    font-weight: 700;
+    margin: 0 5px 24px;
+    float: middle;
+    padding: 10px;
+    margin: 0 5px 24px;
     border: 1px solid #f50057;
     text-align: center;
 }
@@ -46,22 +46,29 @@ h3 {
 }
 .heading-select-file {
     margin-top: 5%;
-    color: #4f69af; 
-    font-size: 20px; 
-    font-weight: 700; 
+    color: #4f69af;
+    font-size: 20px;
+    font-weight: 700;
+}
+.heading-table {
+  margin-top: 0%;
+  color: #4f69af;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
 }
 .entry-trial {
     margin-left: 2%;
     margin-top: 2%;
-    color: #4f69af; 
-    font-size: 15px; 
-    font-weight: 700; 
+    color: #4f69af;
+    font-size: 15px;
+    font-weight: 700;
     display: inline-flex;
 }
 #hide input[type=file] {
     display:none;
     margin:10px;
-} 
+}
 #hide input[type=file ] + label {
     display:inline-block;
     margin:20px;

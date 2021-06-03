@@ -4,6 +4,7 @@ const REGISTER = '/register';
 const LANDING = '/landing';
 const LOGIN = '/login';
 const DASHBOARD= '/dashboard'
+const ADMIN = '/admin'
 
 
 export const routes = {
@@ -12,6 +13,7 @@ export const routes = {
     LANDING,
     LOGIN,
     REVIEW,
-    DASHBOARD
+    DASHBOARD,
+    ADMIN
 
 }

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import Button from '@material-ui/core/Button';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -11,28 +13,24 @@ class Dashboard extends Component {
 render() {
     const { user } = this.props.auth;
 return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
+      <div style={{ height: "20vh" }}>
         <div className="row">
-          <div className="col s12 center-align">
+          <div className="col s12 right-align">
             <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
-              <p className="flow-text grey-text text-darken-1">
+              <b>Welcome,</b> {user.name.split(" ")[0]}
+              <p className="grey-text" style={{fontSize: '15px' }}>
                 You are logged into a full-stack{" "}
                 <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
               </p>
             </h4>
-            <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem"
-              }}
+            <Button
               onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              variant="outlined"
+              color="primary"
+              size="small"
             >
               Logout
-            </button>
+            </Button>
           </div>
         </div>
       </div>

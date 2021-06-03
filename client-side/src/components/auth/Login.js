@@ -19,15 +19,21 @@ class Login extends Component {
 componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      console.log("this is props in history in ====>", this.props)
-      console.log("this is props in login====>", this.props.auth.isAuthenticated)
-      this.props.history.push("/");
+      if (this.state.email === 'admin@gmail.com') {
+          this.props.history.push("/admin");
+      } else {
+        this.props.history.push("/")
+      }
     }
 }
 componentWillReceiveProps(nextProps) {
   if (nextProps.auth.isAuthenticated) {
-    console.log("this is props in history in ====>", this.props.history)
-    this.props.history.push("/"); // push user to dashboard when they login
+    if (this.state.email === 'admin@gmail.com') {
+      this.props.history.push("/admin");
+    } else {
+      this.props.history.push("/");
+    }
+
   }
   if (nextProps.errors) {
     this.setState({
@@ -46,7 +52,7 @@ onSubmit = e => {
         password: this.state.password
       };
       this.props.loginUser(userData); // since we handle the redirect within our component, we don't need to pass in this.props.history as a parameter
-      console.log(userData);
+      console.log("this is user data ====>" ,userData);
   };
 render() {
     const { errors } = this.state;
