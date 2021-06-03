@@ -60,7 +60,7 @@ return (
         <div style={{ marginTop: "4rem" }} className="row">
           <div className="col s8 offset-s2">
           <br></br>
-            <Link to="/" >
+            <Link to="/landing" >
               <i className="material-icons left">keyboard_backspace</i> Back to
               home
             </Link>

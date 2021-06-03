@@ -53,7 +53,7 @@ return (
           <div className="col s8 offset-s2">
             <br></br>
                 <Link
-                    to="/"
+                    to="/landing"
                 >
                 <i className="material-icons left">keyboard_backspace</i> Back to
                 home
