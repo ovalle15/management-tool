@@ -20,7 +20,7 @@ return (
               <b>Welcome,</b> {user.name.split(" ")[0]}
               <p className="grey-text" style={{fontSize: '15px' }}>
                 You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
+                <span style={{ fontFamily: "monospace" }}>MERN</span> app
               </p>
             </h4>
             <Button

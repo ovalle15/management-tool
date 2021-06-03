@@ -31,7 +31,6 @@ componentWillReceiveProps(nextProps) {
         });
     }
 }
-
 onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
