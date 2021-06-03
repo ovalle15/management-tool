@@ -3,8 +3,8 @@ import axios from 'axios';
 
 
 const api = axios.create({
-    baseURL: 'http://localhost:3000/api',
-    hostname: 'http://localhost:3000/',
+    baseURL: 'http://localhost:5000/api',
+    hostname: 'http://localhost:5000/',
     httpsAgent: https.Agent({
         rejectUnauthorized: false,
     }),
@@ -21,6 +21,7 @@ export const updateItemById = (id, payload) => api.put(`/item/${id}`, payload);
 export const deleteItemById = id => api.delete(`/item/${id}`);
 
 export const uploadItem = payload => api.post(`/upload`, payload);
+
 
 const apis = {
     getAllItems,
