@@ -79,14 +79,9 @@ class TableComp extends React.Component {
 
         return (
             <div>
-                <LogOut></LogOut>
-                <h1 className="heading-table">
-                    Trial Management Tool
-                </h1>
-                <br></br>
-                <br></br>
-                <br></br>
-
+                <div>
+                    <LogOut></LogOut>
+                </div>
                 <TableContainer>
                     <Table aria-label="collapsible table">
                         <TableBody>

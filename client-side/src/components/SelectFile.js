@@ -16,12 +16,12 @@ class SelectFile extends React.Component {
         this.uploadFile = this.uploadFile.bind(this);
         this.onClickHandler = this.onClickHandler.bind(this);
         this.trimExtension = this.trimExtension.bind(this);
-    
+
     }
 
     uploadFile(event) {
        console.log("this is events", event.target.files[0])
-        this.setState({ uploadedFile:  event.target.files[0]})        
+        this.setState({ uploadedFile:  event.target.files[0]})
     }
 
     trimExtension () {
@@ -34,7 +34,7 @@ class SelectFile extends React.Component {
         console.log("this is files onClickHandler===>",this.state.uploadedFile)
         var item = this.trimExtension();
         const data = new FormData()
-        data.append('item', item) 
+        data.append('item', item)
         data.append('file', this.state.uploadedFile)
 
         const yml = api.uploadItem(data);
@@ -54,28 +54,29 @@ class SelectFile extends React.Component {
                         className="label-Input"
                         style={{
                             display: "block",
-                            margin: "10px 10px 0" 
+                            margin: "10px 10px 0"
                         }}
                     >
                         Choose a .yml file to upload
                     </label>
-                    <input 
-                        type="file" 
+                    <input
+                        style={{marginLeft: '107px'}}
+                        type="file"
                         className="input-file"
                         id="formFile"
-                        accept=".yml" 
+                        accept=".yml"
                         onChange={this.uploadFile}
                     />
                     <br></br>
-           
+
                     <div
                         className="Input_Button"
                         style={{ marginTop: "10px" }}
                     >
-                        <Button 
+                        <Button
                             size="small"
                             variant="outlined"
-                            color="primary" 
+                            color="primary"
                             onClick={this.onClickHandler}>
                             Upload
                         </Button>

@@ -13,7 +13,7 @@ class LogOut extends Component {
 render() {
     const { user } = this.props.auth;
 return (
-      <div style={{ height: "20vh" }}>
+      <div style={{ height: "20vh"}}>
         <div className="row">
           <div className="col s12 right-align">
             <h4>
