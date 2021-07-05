@@ -42,8 +42,5 @@ Buttons meant to be only functional internally:
 - Staging (review page) -> Navigates to the staging environment
 
 
-### For docker installation
-
-1) docker pull aolc543/management-tool
-#### Start all services
+### For docker installation start all services
 2) docker-compose up -d
