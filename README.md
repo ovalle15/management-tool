@@ -41,3 +41,9 @@ Buttons meant to be only functional internally:
 - MatchMiner (review page) -> Navigates to the production environment
 - Staging (review page) -> Navigates to the staging environment
 
+
+### For docker installation
+
+1) docker pull aolc543/management-tool
+#### Start all services
+2) docker-compose up -d
