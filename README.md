@@ -18,7 +18,12 @@ I have created a tool that could potentially help my team at Dana Farber with tr
 3) Change status
 4) Upload a trial (yml document) into a mongo database to save the trial that was approved.
 
-# To start the application:
+# For docker installation and to start all services 
+
+1) travel to the root folder then --> docker-compose up -d
+2) Open application on localhost:3000
+
+# To start the application without docker:
 
 1) Create a mongo db called management. Three different collections will be created once you start using the application
     - items: history comments and trial status will are stored in this collection
@@ -42,10 +47,7 @@ Buttons meant to be only functional internally:
 - Staging (review page) -> Navigates to the staging environment
 
 
-# For docker installation and to start all services 
 
-1) travel to the root folder then --> docker-compose up -d
-2) Open application on localhost:3000
 
 
 
