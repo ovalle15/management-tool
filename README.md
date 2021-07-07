@@ -18,7 +18,7 @@ I have created a tool that could potentially help my team at Dana Farber with tr
 3) Change status
 4) Upload a trial (yml document) into a mongo database to save the trial that was approved.
 
-# For docker installation and to start all services 
+# For docker installation and to start all services:
 
 1) travel to the root folder then --> docker-compose up -d
 2) Open application on localhost:3000
