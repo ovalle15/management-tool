@@ -4,7 +4,7 @@ trial management tool
 I have created a tool that could potentially help my team at Dana Farber with trial managment.
 ### Live Application: https://management-mern-app.herokuapp.com/
 
-## Trial management workflow this application could support:
+# Trial management workflow this application could support:
 
 ### Not admin users:
 
@@ -33,13 +33,7 @@ I have created a tool that could potentially help my team at Dana Farber with tr
 3) Navigate to the server folder and run the following:
     - npm i
     - nodemon index.js
-
-
-# For docker installation and to start all services (server, client, mongo)
-1) installed client and server package.json files
-2) travel to the root folder then --> docker-compose up -d
-
-
+ 
 #### Note that several of the endpoints in the application are only for internal use at Dana Farber.
 
 Buttons meant to be only functional internally:
@@ -47,6 +41,14 @@ Buttons meant to be only functional internally:
 - Oncpro (review page) -> Navigates to an internal app
 - MatchMiner (review page) -> Navigates to the production environment
 - Staging (review page) -> Navigates to the staging environment
+
+
+# For docker installation and to start all services (server, client, mongo)
+1) installed client and server package.json files
+2) travel to the root folder then --> docker-compose up -d
+
+
+
 
 
 
