@@ -46,7 +46,7 @@ Buttons meant to be only functional internally:
 # For docker installation and to start all services 
 
 1) travel to the root folder then --> docker-compose up -d
-
+2) Open application on localhost:3000
 
 
 
