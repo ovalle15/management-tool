@@ -27,7 +27,7 @@ I have created a tool that could potentially help my team at Dana Farber with tr
 
 2) Navigate to the client-side and run the following:
     -  npm i
-    -  yarn start
+    -  npm start
 
 3) Navigate to the server folder and run the following:
     - npm i
