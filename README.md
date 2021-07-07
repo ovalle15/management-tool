@@ -1,5 +1,4 @@
 # management-tool
-trial management tool
 
 I have created a tool that could potentially help my team at Dana Farber with trial managment.
 ### Live Application: https://management-mern-app.herokuapp.com/
