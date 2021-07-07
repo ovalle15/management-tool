@@ -2,6 +2,7 @@
 trial management tool
 
 I have created a tool that could potentially help my team at Dana Farber with trial managment.
+### Live Application: https://management-mern-app.herokuapp.com/
 
 ## Trial management workflow this application could support:
 
@@ -33,7 +34,13 @@ I have created a tool that could potentially help my team at Dana Farber with tr
     - npm i
     - nodemon index.js
 
-#### Note that many of the endpoints use in the application are only for internal use at Dana Farber.
+
+# For docker installation and to start all services (server, client, mongo)
+1) installed client and server package.json files
+2) travel to the root folder then --> docker-compose up -d
+
+
+#### Note that several of the endpoints in the application are only for internal use at Dana Farber.
 
 Buttons meant to be only functional internally:
 - Download cloud (main page) -> downloads a yml doc with the protocol number specified
@@ -42,6 +49,4 @@ Buttons meant to be only functional internally:
 - Staging (review page) -> Navigates to the staging environment
 
 
-### For docker installation and to start all services
-1) installed client and server package.json files
-2) traver to root then --> docker-compose up -d
+
