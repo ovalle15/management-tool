@@ -4,7 +4,7 @@ trial management tool
 I have created a tool that could potentially help my team at Dana Farber with trial managment.
 ### Live Application: https://management-mern-app.herokuapp.com/
 
-# Trial management workflow this application could support:
+### Trial management workflow this application could support:
 
 ### Not admin users:
 
@@ -19,7 +19,7 @@ I have created a tool that could potentially help my team at Dana Farber with tr
 3) Change status
 4) Upload a trial (yml document) into a mongo database to save the trial that was approved.
 
-### To start the application:
+# To start the application:
 
 1) Create a mongo db called management. Three different collections will be created once you start using the application
     - items: history comments and trial status will are stored in this collection
