@@ -45,8 +45,7 @@ Buttons meant to be only functional internally:
 
 # For docker installation and to start all services 
 
-1) install client and server package.json files
-2) travel to the root folder then --> docker-compose up -d
+1) travel to the root folder then --> docker-compose up -d
 
 
 
