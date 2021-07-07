@@ -43,8 +43,9 @@ Buttons meant to be only functional internally:
 - Staging (review page) -> Navigates to the staging environment
 
 
-# For docker installation and to start all services (server, client, mongo)
-1) installed client and server package.json files
+# For docker installation and to start all services 
+
+1) install client and server package.json files
 2) travel to the root folder then --> docker-compose up -d
 
 
